@@ -1,8 +1,8 @@
-// import SlimSelect from 'slim-select'
+import SlimSelect from 'slim-select'
+import 'slim-select/dist/slimselect.css';
 // import refs from "./refs"
-// new SlimSelect({
-//   select: '#single'
-// })
+
+
 
 const urlBreeds = `https://api.thecatapi.com/v1/breeds`;
 const api_key =
@@ -38,7 +38,12 @@ function takeList (){
   })  .then(data => {
     refs.select.classList.remove('is-hidden');
     refs.loaderEl.classList.add('is-hidden');
-    fillSelect(data)})
+    fillSelect(data)
+    
+    new SlimSelect({
+      select: refs.select
+    })
+  })
   .catch(error => refs.errorEl.classList.remove('is-hidden'));
 }
 
