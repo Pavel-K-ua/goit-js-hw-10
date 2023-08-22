@@ -2,8 +2,6 @@ import SlimSelect from 'slim-select'
 import 'slim-select/dist/slimselect.css';
 // import refs from "./refs"
 
-
-
 const urlBreeds = `https://api.thecatapi.com/v1/breeds`;
 const api_key =
   'live_Mfoctkyb81AdTnvkuASKbgDMF3qZlosxU5mxt0kho40Taaq9x32aHUfQTzhcu54D';
@@ -46,7 +44,7 @@ function takeList (){
   })
   .catch(error => refs.errorEl.classList.remove('is-hidden'));
 }
-
+takeList()
 
 function fillSelect(cats) {
   const catsArr = cats
