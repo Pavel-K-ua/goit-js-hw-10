@@ -20,7 +20,8 @@ const api_key =
 };
 
 refs.errorEl.classList.add('is-hidden');
-refs.loaderEl.classList.add('is-hidden');
+// refs.loaderEl.classList.add('is-hidden');
+refs.select.classList.add('is-hidden');
 
 fetch(urlBreeds, {
   headers: {
@@ -34,7 +35,10 @@ fetch(urlBreeds, {
       return response.json();
     }
   })
-  .then(data => fillSelect(data))
+  .then(data => {
+    refs.select.classList.remove('is-hidden');
+    refs.loaderEl.classList.add('is-hidden');
+    fillSelect(data)})
   .catch(error => refs.errorEl.classList.remove('is-hidden'));
 
 function fillSelect(cats) {
